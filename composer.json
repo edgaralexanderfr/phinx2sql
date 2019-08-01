@@ -1,7 +1,7 @@
 {
     "name": "edgaralexanderfr/phinx2sql",
     "description": "Tool that allows you to print Phinx migrations displaying the SQL statements that pass through the `execute` method.",
-    "type": "project",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -9,7 +9,7 @@
             "email": "edgaralexanderfr@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.3.0"
     },
