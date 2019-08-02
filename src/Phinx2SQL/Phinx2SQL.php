@@ -43,8 +43,6 @@ class Phinx2SQL
 
             if (strpos($file, $migration) !== false
                 && pathinfo($file, PATHINFO_EXTENSION) == 'php') {
-                require_once $migrationsPath . '/' . $file;
-                
                 $fileNameArray = explode(
                     '_',
                     pathinfo($file, PATHINFO_FILENAME)
@@ -57,8 +55,22 @@ class Phinx2SQL
                 }
 
                 $class  = implode('', $fileNameArray);
-                $object = new $class();
-                $object->up();
+
+                $script  = '<?php class AbstractMigration { public function execute($sql) { echo $sql . PHP_EOL; } } ';
+                $script .= str_replace(array('<?php', 'use Phinx\Migration;'), '', file_get_contents($migrationsPath . '/' . $file)) . ' ';
+                $script .= '$object = new ' . $class . '(); ';
+
+                if (self::_checkParam($params, '-g', 'up') || self::_checkParam($params, '--up')) {
+                    $script .= '$object->up(); ';
+                } else {
+                    if (self::_checkParam($params, '-g', 'down') || self::_checkParam($params, '--down')) {
+                        $script .= '$object->down(); ';
+                    } else {
+                        $script .= '$object->up(); echo PHP_EOL; $object->down(); ';
+                    }
+                }
+
+                eval('?>' . $script);
 
                 $found = true;
 
