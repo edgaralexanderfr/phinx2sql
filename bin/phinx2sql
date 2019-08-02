@@ -25,6 +25,4 @@ if (!$found) {
     );
 }
 
-$app = new Phinx2SQL\App();
-$app->run();
-
+Phinx2SQL\Phinx2SQL::main($argc, $argv);
