@@ -1,6 +1,6 @@
 # Phinx2SQL
 
-[![View last release](https://img.shields.io/badge/version-1.0.0-informational.svg)](https://github.com/edgaralexanderfr/phinx2sql/releases/latest)
+[![View last release](https://img.shields.io/badge/version-1.1.0-informational.svg)](https://github.com/edgaralexanderfr/phinx2sql/releases/latest)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 ## INSTALACIÓN
