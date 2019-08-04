@@ -55,7 +55,7 @@ class Phinx2SQL
                 $class  = implode('', $fileNameArray);
 
                 $script  = '<?php class AbstractMigration { public function execute($sql) { echo $sql . PHP_EOL; } } ';
-                $script .= str_replace(array('<?php', 'use Phinx\Migration;'), '', file_get_contents($migrationsPath . '/' . $file)) . ' ';
+                $script .= str_replace(array('<?php', 'use Phinx\Migration;', 'use Phinx\Migration\AbstractMigration;'), '', file_get_contents($migrationsPath . '/' . $file)) . ' ';
                 $script .= '$object = new ' . $class . '(); ';
 
                 if (self::_checkParam($params, '-g', 'up') || self::_checkParam($params, '--up')) {

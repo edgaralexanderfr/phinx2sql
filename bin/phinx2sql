@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-define('MIGRATIONS_DEFAULT_PATH', '../../data/migrations/');
+define('MIGRATIONS_DEFAULT_PATH', './data/migrations/');
 
 $files = array(
     __DIR__ . '/../edgaralexanderfr/phinx2sql/vendor/autoload.php',
