@@ -54,7 +54,7 @@ class Phinx2SQL
 
                 $class  = implode('', $fileNameArray);
 
-                $script  = '<?php class AbstractMigration { public function execute($sql) { echo $sql . PHP_EOL; } } ';
+                $script  = '<?php class AbstractMigration { public $p2s_isUp = true; public function execute($sql) { echo "-- -" . PHP_EOL; if ($this->p2s_isUp) { echo "-- Migrate Up" . PHP_EOL; } else { echo "-- Migrate Down" . PHP_EOL; } echo "-- -" . PHP_EOL; echo $sql . PHP_EOL; } } ';
                 $script .= str_replace(array('<?php', 'use Phinx\Migration;', 'use Phinx\Migration\AbstractMigration;'), '', file_get_contents($migrationsPath . '/' . $file)) . ' ';
                 $script .= '$object = new ' . $class . '(); ';
 
@@ -62,9 +62,9 @@ class Phinx2SQL
                     $script .= '$object->up(); ';
                 } else {
                     if (self::_checkParam($params, '-g', 'down') || self::_checkParam($params, '--down')) {
-                        $script .= '$object->down(); ';
+                        $script .= '$object->p2s_isUp = false; $object->down(); ';
                     } else {
-                        $script .= '$object->up(); echo PHP_EOL; $object->down(); ';
+                        $script .= '$object->up(); echo PHP_EOL; $object->p2s_isUp = false; $object->down(); ';
                     }
                 }
 
