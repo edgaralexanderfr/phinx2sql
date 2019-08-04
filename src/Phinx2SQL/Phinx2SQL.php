@@ -7,12 +7,37 @@ class Phinx2SQL
     public static function main($argc, array $argv)
     {
         try {
-            self::_printMigration(self::_getParams($argc, $argv));
+            $params = self::_getParams($argc, $argv);
+            
+            if ($argc < 2 
+                || self::_checkParam($params, '-h') 
+                || self::_checkParam($params, '--help')) {
+                self::_printHelp($params);
+    
+                return;
+            }
+            
+            self::_printMigration($params);
         } catch (\Exception $e) {
             echo 'Error: ' . $e->getMessage() . PHP_EOL;
         }
     }
 
+    private static function _printHelp(array $params)
+    {
+        echo
+            'Phinx2SQL 1.0.0'                                                                            . PHP_EOL . 
+                                                                                                           PHP_EOL . 
+            'Usage:'                                                                                     . PHP_EOL . 
+            '  command [migrations path] [arguments]:'                                                   . PHP_EOL . 
+                                                                                                           PHP_EOL . 
+            'Options:'                                                                                   . PHP_EOL . 
+            '  -h, --help        Display this help message'                                              . PHP_EOL . 
+            '  -m                Specify migration ID or part of the name of the file'                   . PHP_EOL . 
+            '  -g, --up, --down  `-g up` to get the "Migrate Up" or `-g down` to get the "Migrate Down"' . PHP_EOL . 
+            '';
+    }
+    
     private static function _printMigration(array $params)
     {
         $migration = self::_getParamValue($params, '-m');
