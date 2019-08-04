@@ -18,5 +18,5 @@
             "Phinx2SQL": "src/"
         }
     },
-    "bin": ["bin/phinx2sql"]
+    "bin": ["dist/phinx2sql"]
 }
