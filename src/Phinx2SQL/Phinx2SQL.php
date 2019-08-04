@@ -4,8 +4,6 @@ namespace Phinx2SQL;
 
 class Phinx2SQL
 {
-    const MIGRATIONS_DEFAULT_PATH = './data/migrations/';
-    
     public static function main($argc, array $argv)
     {
         try {
@@ -26,7 +24,7 @@ class Phinx2SQL
         $migrationsPath = self::_getParamElement($params, 0);
         
         if (!$migrationsPath) {
-            $migrationsPath = self::MIGRATIONS_DEFAULT_PATH;
+            $migrationsPath = MIGRATIONS_DEFAULT_PATH;
         }
 
         if (!is_dir($migrationsPath)) {
@@ -89,7 +87,7 @@ class Phinx2SQL
     {
         $params = array(
             'values'   => array(),
-            'elements' => array()
+            'elements' => array(),
         );
 
         if ($argc < 2) {
