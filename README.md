@@ -10,6 +10,12 @@
 3. Mover _edgaralexanderfr_ a la carpeta del repo de alegra _alegra/vendor_
 4. Abrir _alegra/vendor/edgaralexanderfr/phinx2sql/bin_ y copiar el ejecutable _phinx2sql_ adentro de la carpeta _alegra/vendor/bin_
 
+### Usando Composer
+
+`composer require edgaralexanderfr/phinx2sql`
+
+No se debe usar en alegra.
+
 ## USO
 
 `comando [ruta a la carpeta de migraciones] [argumentos]`
