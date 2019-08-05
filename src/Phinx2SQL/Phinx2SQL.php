@@ -26,7 +26,7 @@ class Phinx2SQL
     private static function _printHelp(array $params)
     {
         echo
-            'Phinx2SQL 1.1.0'                                                                            . PHP_EOL . 
+            'Phinx2SQL 1.1.1'                                                                            . PHP_EOL . 
                                                                                                            PHP_EOL . 
             'Usage:'                                                                                     . PHP_EOL . 
             '  command [migrations path] [arguments]:'                                                   . PHP_EOL . 
