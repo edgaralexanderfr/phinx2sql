@@ -13,7 +13,7 @@
 
 ### Usando Composer
 
-`composer require edgaralexanderfr/phinx2sql`
+`composer require edgaralexanderfr/phinx2sql --dev`
 
 No se debe usar en alegra.
 
