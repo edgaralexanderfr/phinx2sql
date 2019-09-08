@@ -1,6 +1,6 @@
 # Phinx2SQL
 
-[![View last release](https://img.shields.io/badge/version-1.1.1-informational.svg)](https://github.com/edgaralexanderfr/phinx2sql/releases/latest)
+[![View last release](https://img.shields.io/badge/version-1.2.0-informational.svg)](https://github.com/edgaralexanderfr/phinx2sql/releases/latest)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 ## INSTALACIÓN
@@ -23,9 +23,11 @@ No se debe usar en alegra.
 ### Opciones
 
 ```bash
-  -h, --help        Mostrar ayuda
-  -m                Especificar el ID de la migración o parte del nombre del archivo
-  -g, --up, --down  `-g up` para sacar el "Migrate Up" oo `-g down` para sacar el "Migrate Down"
+  -h, --help          Mostrar ayuda
+  -m                  Especificar el ID de la migración o parte del nombre del archivo
+  -g, --up, --down    `-g up` para sacar el "Migrate Up" oo `-g down` para sacar el "Migrate Down"
+  --append-semicolon  Añadir punto y coma a cada sentencia que pase por la función `execute`
+  --colorize          Colorear sintaxis de MySQL en la salida
 ```
 
 ### Ejemplos
